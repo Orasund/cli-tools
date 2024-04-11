@@ -1,1 +1,1 @@
-python src/__init__.py $1
+python src/watcher.py $1 $2
