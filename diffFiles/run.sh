@@ -1,1 +1,1 @@
-python src/diffFiles.py $1 $2
+python src/diff_files.py $1 $2
