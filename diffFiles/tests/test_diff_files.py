@@ -1,5 +1,5 @@
 from click.testing import CliRunner
-from diffFiles.src.diff_files import diff_files
+from src.diff_files import diff_files
 
 
 def test():

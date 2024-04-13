@@ -4,4 +4,6 @@ This project is meant to have a set of projects that can be implemented in diffe
 
 ## Projects
 
-1. hashFile - hash the content of a file
+1. hashFile (pyhton) - hash the content of a file
+2. watcher (python) - watches a directory
+3. diffFiles (python) - diffing two files

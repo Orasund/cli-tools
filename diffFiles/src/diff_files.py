@@ -1,8 +1,6 @@
 from typing import cast
 import click
 
-# https://en.wikipedia.org/wiki/Longest_common_subsequence
-
 
 class Node:
     def __init__(self, next_pos: tuple[int, int] | None, length: int) -> None:
@@ -10,7 +8,9 @@ class Node:
         self.length = length
 
 
-def build_matrix(l1: list[str], l2: list[str]) -> list[list[Node]]:
+def build_subsequence_matrix(l1: list[str], l2: list[str]) -> list[list[Node]]:
+    # we use the matrix as a graph
+    # where each node points to one of their neighbors
     nodes: list[list[Node]] = []
 
     def get_node(pos: tuple[int, int]) -> Node | None:
@@ -92,8 +92,14 @@ def diff_files(file1: str, file2: str):
     lines1: list[str] = open(file1, "r").readlines()
     lines2: list[str] = open(file2, "r").readlines()
 
-    matrix = build_matrix(lines1, lines2)
+    # Algorithm taken from
+    # https://en.wikipedia.org/wiki/Longest_common_subsequence
+    #
+    # 1. Build a graph of subsequences (stores as a matrix)
+    matrix = build_subsequence_matrix(lines1, lines2)
+    # 2. Walk the graph and collect all the indecies where the strings match
     commonIndices = compute_common_indices(matrix)
+    # 3. Compute the differences based on the collected indecies
     differences = compute_differences(lines1, lines2, commonIndices)
 
     click.echo(differences)
