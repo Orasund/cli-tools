@@ -17,6 +17,8 @@ bash run.sh
 
 ## Test
 
+In diffFiles-folder, run
+
 ```
-bash test.sh
+pytest
 ```
