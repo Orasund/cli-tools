@@ -1,4 +1,4 @@
-from typing import cast
+from typing import cast, IO
 import click
 
 
@@ -88,12 +88,12 @@ def compute_differences(
 
 
 @click.command()
-@click.argument("file1")
-@click.argument("file2")
-def diff_files(file1: str, file2: str):
+@click.argument("file1", type=click.File(mode="r"))
+@click.argument("file2", type=click.File(mode="r"))
+def diff_files(file1: IO, file2: IO):
     """Return the difference between FILE1 and FILE2"""
-    lines1: list[str] = open(file1, "r").readlines()
-    lines2: list[str] = open(file2, "r").readlines()
+    lines1: list[str] = file1.readlines()
+    lines2: list[str] = file2.readlines()
 
     # Algorithm taken from
     # https://en.wikipedia.org/wiki/Longest_common_subsequence
