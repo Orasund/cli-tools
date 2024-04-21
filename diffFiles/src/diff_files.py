@@ -50,13 +50,16 @@ def build_subsequence_matrix(l1: list[str], l2: list[str]) -> list[list[Node]]:
 
 
 def compute_common_indices(nodes: list[list[Node]]) -> list[tuple[int, int]]:
+    commonIndices: list[tuple[int, int]] = []
+    if not nodes:
+        return commonIndices
+
     pos: tuple[int, int] = (len(nodes) - 1, len(nodes[0]) - 1)
 
     def get_node(pos: tuple[int, int]) -> Node:
         return nodes[pos[0]][pos[1]]
 
     node: Node = get_node(pos)
-    commonIndices: list[tuple[int, int]] = []
 
     while node.next_pos is not None:
         nextNode = get_node(node.next_pos)
