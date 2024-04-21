@@ -1,11 +1,12 @@
+from dataclasses import dataclass
 from typing import cast, IO
 import click
 
 
+@dataclass
 class Node:
-    def __init__(self, next_pos: tuple[int, int] | None, length: int) -> None:
-        self.next_pos = next_pos
-        self.length = length
+    next_pos: tuple[int, int]
+    length: int
 
 
 def build_subsequence_matrix(l1: list[str], l2: list[str]) -> list[list[Node]]:
