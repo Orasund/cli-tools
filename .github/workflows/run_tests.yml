@@ -26,32 +26,17 @@ jobs:
     - name: Test hashFile
       run: |
         cd hashFile
-        python -m venv venv
-        source venv/bin/activate
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        bash test.sh
-        deactivate
+        bash ci.sh
         cd ../
 
     - name: Test watcher
       run: |
         cd watcher
-        python -m venv venv
-        source venv/bin/activate
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        bash test.sh
-        deactivate
+        bash ci.sh
         cd ../
 
     - name: Test diffFiles
       run: |
         cd diffFiles
-        python -m venv venv
-        source venv/bin/activate
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        bash test.sh
-        deactivate
+        bash ci.sh
         cd ../
