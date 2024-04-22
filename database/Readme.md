@@ -13,5 +13,5 @@ dune build
 # Run
 
 ```
-dune exec database
+bash run.sh
 ```

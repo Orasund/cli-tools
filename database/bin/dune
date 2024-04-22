@@ -1,4 +1,4 @@
 (executable
  (public_name database)
  (name main)
- (libraries database))
+ (libraries cmdliner))
