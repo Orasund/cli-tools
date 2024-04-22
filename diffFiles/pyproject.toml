@@ -1,0 +1,25 @@
+[project]
+name = "diff-files"
+version = "0.1"
+description = "Return the difference between FILE1 and FILE2"
+readme = "Readme.md"
+authors = [{name = "Lucas Payr", email = "orasund@gmail.com"}]
+dependencies = [
+    "click",
+]
+
+[project.scripts]
+diff-files = "diff_files:diff_files"
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+]
+dev = [
+    "build",
+    "pip-tools",
+]
+
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
