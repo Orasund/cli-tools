@@ -10,7 +10,7 @@ let write =
   Term.(
     const Database.Operations.write 
     $ Arg.(value (pos 0 string "" (Arg.info ["key"])) )
-    $ Arg.(value (pos 0 string "" (Arg.info ["value"])) )
+    $ Arg.(value (pos 1 string "" (Arg.info ["value"])) )
   )
 
 let cmd = Cmd.group (Cmd.info "database")
