@@ -1,2 +1,3 @@
 (library
- (name database))
+ (name database)
+ (libraries str))
